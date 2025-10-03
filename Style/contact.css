@@ -213,3 +213,166 @@
     min-width: 200px;
   }
 }
+
+/* Form Message Styles */
+.form-message {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  margin-top: 20px;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  transition: all 0.3s ease;
+  opacity: 1;
+}
+
+.form-message-success {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #10b981;
+}
+
+.form-message-error {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+}
+
+.form-message i {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.form-message span {
+  flex: 1;
+  line-height: 1.4;
+}
+
+/* Professional Send Button Animations */
+.sending-animation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.sending-text {
+  font-weight: 600;
+}
+
+.dots {
+  display: flex;
+  gap: 2px;
+}
+
+.dot {
+  animation: bounce 1.4s ease-in-out infinite both;
+}
+
+.dot:nth-child(1) { animation-delay: -0.32s; }
+.dot:nth-child(2) { animation-delay: -0.16s; }
+.dot:nth-child(3) { animation-delay: 0s; }
+
+.success-animation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.checkmark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkmark-path {
+  stroke-dasharray: 10;
+  stroke-dashoffset: 10;
+  animation: checkmark-draw 0.5s ease-out forwards;
+}
+
+.error-animation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.error-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: error-pulse 0.5s ease-out;
+}
+
+/* Keyframe Animations */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes checkmark-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes error-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+  20%, 40%, 60%, 80% { transform: translateX(2px); }
+}
+
+/* Enhanced form validation styles */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.contact-form input.error,
+.contact-form textarea.error {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* Loading state for submit button */
+.contact-form button[type="submit"]:disabled {
+  cursor: not-allowed;
+  user-select: none;
+}
+
+.contact-form button[type="submit"]:disabled:hover {
+  transform: none;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
